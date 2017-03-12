@@ -1,0 +1,112 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/** main **/
+#app{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/** editor **/
+#editor {
+  padding-bottom: 50px;
+}
+.ui.input.header {
+  width: 100%;
+}
+.ui.input.header input{
+  padding: 10px !important;
+}
+.CodeMirror {
+  border: none;
+  height: 100%;
+}
+.CodeMirror img {
+  width: 100%;
+}
+.editor-preview {
+  background: #fff;
+}
+.editor-preview-side {
+  display: none !important;
+}
+
+/** Split.js **/
+.gutter {
+  background-color: #eee;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter-horizontal {
+  cursor: ew-resize;
+}
+
+.split-horizontal,
+.gutter-horizontal {
+  height: 100%;
+  float: left;
+}
+
+/** notes/semantic-ui overrides **/
+#notes {
+  overflow-y: scroll;
+  user-select: none;
+}
+.ui .item.note {
+  padding: 15px;
+  margin: 0;
+  cursor: default;
+  border-bottom: 1px solid #efefef;
+}
+.ui .item.note .header {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.ui .item.note .content {
+  width: 100%;
+}
+
+.ui .item.note.selected {
+  background-color: #f5e283;
+  border-bottom-color: #f5e283;
+}
+
+/** search **/
+#search {
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    z-index: 999;
+}
+#search input {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+}
+#search input:focus {
+  border-color: rgba(34,36,38,.15);
+}
+
+/** utilities **/
+.hidden {
+  display: none !important;
+}
