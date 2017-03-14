@@ -1,5 +1,7 @@
 ![Frank UI](https://raw.githubusercontent.com/jjcosgrove/frank/master/app/assets/images/frank_ui.jpg)
 
+\*Devid app icon taken from [Turbomilk](http://www.turbomilk.com)
+
 # Features
 
 * Minimalist interface
@@ -45,7 +47,7 @@ Editor shortcut | Action
 
 # Releases
 
-You can find 64-bit ready-to-use .dmg (macOS), .deb (Linux) and .exe (Windows) files here: [https://github.com/jjcosgrove/frank/releases](https://github.com/jjcosgrove/frank/releases)
+You can find 64-bit ready-to-use .dmg (macOS), .deb (Linux) and .exe/nsis (Windows) files here: [https://github.com/jjcosgrove/frank/releases](https://github.com/jjcosgrove/frank/releases)
 
 # Building from source
 
