@@ -49,8 +49,11 @@ var EditorView = function (options) {
     },
     highlight: function () {
       App.Utilities.ConsoleLogger('APP: Highlighting')
-      this.$el.find('pre code').each(function (index, block) {
-        hljs.highlightBlock(block)
+      var el = this.$el
+      _.defer(function () {
+        el.find('pre code').each(function (index, block) {
+          hljs.highlightBlock(block)
+        })
       })
     },
     autoSave: _.throttle(function () {
@@ -62,9 +65,11 @@ var EditorView = function (options) {
     }),
     togglePreview: function () {
       App.Utilities.ConsoleLogger('APP: Toggle Preview')
+      var view = this
       var editor = this.editor
       if (!_.isUndefined(editor)) {
         editor.togglePreview()
+        view.highlight()
       }
       return this
     },

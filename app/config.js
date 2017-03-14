@@ -31,6 +31,7 @@ var Config = function () {
         cleanBlock: null,
         toggleFullScreen: null,
         toggleSideBySide: null,
+        togglePreview: null,
         drawTable: 'Cmd-T'
       }
     }
