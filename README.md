@@ -22,24 +22,24 @@ Global shortcut | Action
 *CmdOrCtrl+D* | Delete note
 *CmdOrCtrl+F* | Search notes (RegEx-based)
 *CmdOrCtrl+E* | Export notes (JSON)
-*CmdOrCtrl-P* | Toggle preview (see editor shortcut)
-*CmdOrCtrl-Q* | Quit
+*CmdOrCtrl+P* | Toggle preview (see editor shortcut)
+*CmdOrCtrl+Q* | Quit
 
 <br>
 
 Editor shortcut | Action
 :------- | :-----
-*CmdOrCtrl-'* | toggleBlockquote
-*CmdOrCtrl-B* | toggleBold
-*CmdOrCtrl-H* | toggleHeadingSmaller
-*CmdOrCtrl-I* | toggleItalic
-*CmdOrCtrl-K* | drawLink
-*CmdOrCtrl-L* | toggleUnorderedList
-*CmdOrCtrl-P* | togglePreview
-*CmdOrCtrl-Alt-C* | toggleCodeBlock
-*CmdOrCtrl-Alt-I* | drawImage
-*CmdOrCtrl-Alt-L* | toggleOrderedList
-*Shift-CmdOrCtrl-H* | toggleHeadingBigger
+*CmdOrCtrl+'* | toggleBlockquote
+*CmdOrCtrl+B* | toggleBold
+*CmdOrCtrl+H* | toggleHeadingSmaller
+*CmdOrCtrl+I* | toggleItalic
+*CmdOrCtrl+K* | drawLink
+*CmdOrCtrl+L* | toggleUnorderedList
+*CmdOrCtrl+P* | togglePreview
+*CmdOrCtrl+Alt+C* | toggleCodeBlock
+*CmdOrCtrl+Alt+I* | drawImage
+*CmdOrCtrl+Alt+L* | toggleOrderedList
+*Shift+CmdOrCtrl+H* | toggleHeadingBigger
 
 <br>
 
