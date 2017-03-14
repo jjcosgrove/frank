@@ -98,6 +98,14 @@ if (process.platform === 'darwin') {
   ]
 }
 
+if (process.platform === 'win' || process.platform === 'linux') {
+  // quit for file menu
+  menu[0].submenu.push(
+    { type: 'separator' },
+    { role: 'quit' }
+  )
+}
+
 app.on('ready', function () {
   manageInstance()
   createWindow()

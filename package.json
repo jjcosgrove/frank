@@ -1,5 +1,5 @@
 {
-  "name": "Frank",
+  "name": "frank",
   "version": "1.0.0",
   "description": "A minimalist Markdown notes app",
   "main": "main.js",
@@ -7,8 +7,32 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "package": "electron-packager . --icon=app/assets/icons/mac/icon.icns --electron-version=1.6.1 --platform=darwin --arch=x64 --out=builds --overwrite",
-    "package-asar": "electron-packager . --icon=app/assets/icons/mac/icon.icns --asar --electron-version=1.6.1 --platform=darwin --arch=x64 --out=builds --overwrite"
+    "dist": "build",
+    "dist-mac": "build --mac --x64",
+    "dist-linux": "build --linux --x64",
+    "dist-win": "build --win --x64",
+    "dist-all": "build --mac --linux --win --x64"
+  },
+  "build": {
+    "appId": "jjcosgrove.frank",
+    "productName": "Frank",
+    "forceCodeSigning": false,
+    "directories": {
+      "output": "builds"
+    },
+    "electronVersion": "1.6.2",
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.productivity",
+      "icon": "app/assets/icons/mac/icon.icns"
+    },
+    "linux": {
+      "target": "deb",
+      "icon": "app/assets/icons/png"
+    },
+    "win": {
+      "icon": "app/assets/icons/win/icon.ico"
+    }
   },
   "keywords": [
     "frank",
@@ -36,6 +60,8 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "electron": "^1.6.2",
+    "electron-builder": "^15.4.3",
     "standard": "^8.6.0"
   },
   "standard": {
