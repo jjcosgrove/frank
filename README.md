@@ -1,5 +1,15 @@
 ![Frank UI](https://raw.githubusercontent.com/jjcosgrove/frank/master/app/assets/images/frank_ui.jpg)
 
+# Features
+
+* Minimalist interface
+* Shortcut driven
+* Markdown support ([SimpleMDE](https://simplemde.com/))
+* Syntax highlighting ([highlight.js](https://highlightjs.org/))
+* Text-based search (RegEx)
+* Export (JSON)
+* Local data storage ([NeDB](https://github.com/louischatriot/nedb))
+
 # Shortcuts
 
 Everything in Frank is driven by shortcuts. That really is all you need to know*
