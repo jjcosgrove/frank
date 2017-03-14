@@ -51,7 +51,7 @@ npm install -g electron
 
 I.e. install Electron globally, for easier usage. If you want more information and/or control over which variation of Electron gets installed, see: [https://www.npmjs.com/package/electron](https://www.npmjs.com/package/electron)
 
-# Build instructions
+# Build instructions (from source)
 
 Assuming you have created a local folder called 'frank' and have entered into it from a shell/command line:
 
@@ -72,6 +72,8 @@ npm install
 ```
 npm start
 ```
+
+# Build instructions (binary)
 
 Should you wish to build your own binary, check out the package.json for the 'package' script as a starting point:
 
