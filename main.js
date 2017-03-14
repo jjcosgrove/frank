@@ -135,8 +135,8 @@ function manageInstance () {
 function createWindow () {
   // store the window state between sessions
   let defaultWinState = winState({
-    defaultWidth: 1500,
-    defaultHeight: 900
+    defaultWidth: 800,
+    defaultHeight: 600
   })
 
   win = new BrowserWindow({

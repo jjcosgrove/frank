@@ -7,8 +7,8 @@ var Config = function () {
     'Splitjs': {
       containers: ['#notes', '#editor'],
       settings: {
-        sizes: [25, 75],
-        minSize: [350, 550],
+        sizes: [35, 65],
+        minSize: [250, 400],
         gutterSize: 2
       }
     },
@@ -18,22 +18,22 @@ var Config = function () {
       forceSync: true,
       hideIcons: true,
       indentWithTabs: false,
-      toolbar: null,
-      status: false,
-      styleSelectedText: false,
       placeholder: 'Markdown goes here...',
-      spellChecker: false,
       renderingConfig: {
         codeSyntaxHighlighting: true
       },
-      tabSize: 2,
       shortcuts: {
         cleanBlock: null,
         toggleFullScreen: null,
         toggleSideBySide: null,
         togglePreview: null,
         drawTable: 'Cmd-T'
-      }
+      },
+      spellChecker: false,
+      status: false,
+      styleSelectedText: false,
+      tabSize: 2,
+      toolbar: null
     }
   }
   return config
