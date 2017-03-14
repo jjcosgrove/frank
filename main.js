@@ -1,16 +1,15 @@
-const {app, BrowserWindow, ipcMain} = require('electron')
+const {app, BrowserWindow} = require('electron')
 const {Menu} = require('electron')
-const {shell} = require('electron')
-
-const winState = require('electron-window-state')
-
 const path = require('path')
 const url = require('url')
 
+const winState = require('electron-window-state')
+
 let win
+let shouldQuit
 
 // create the application menu and send shortcuts to render process
-const menu = [
+let menu = [
   {
     label: 'File',
     submenu: [
@@ -40,27 +39,13 @@ const menu = [
   {
     label: 'Edit',
     submenu: [
-      {
-        role: 'undo'
-      },
-      {
-        role: 'redo'
-      },
-      {
-        type: 'separator'
-      },
-      {
-        role: 'cut'
-      },
-      {
-        role: 'copy'
-      },
-      {
-        role: 'paste'
-      },
-      {
-        role: 'selectall'
-      },
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      { role: 'selectall' },
       {
         label: 'Preview (Toggle)',
         accelerator: 'CmdOrCtrl+P',
@@ -85,15 +70,9 @@ const menu = [
   {
     role: 'window',
     submenu: [
-      {
-        role: 'togglefullscreen'
-      },
-      {
-        role: 'minimize'
-      },
-      {
-        role: 'close'
-      }
+      { role: 'togglefullscreen' },
+      { role: 'minimize' },
+      { role: 'close' }
     ]
   }
 ]
@@ -103,64 +82,26 @@ if (process.platform === 'darwin') {
   menu.unshift({
     label: app.getName(),
     submenu: [
-      {
-        role: 'about'
-      },
-      {
-        role: 'hide'
-      },
-      {
-        type: 'separator'
-      },
-      {
-        role: 'quit'
-      }
+      { role: 'about' },
+      { role: 'hide' },
+      { type: 'separator' },
+      { role: 'quit' }
     ]
   })
   // window menu for OSX
   menu[4].submenu = [
-    {
-      label: 'Close',
-      accelerator: 'CmdOrCtrl+W',
-      role: 'close'
-    },
-    {
-      label: 'Minimize',
-      accelerator: 'CmdOrCtrl+M',
-      role: 'minimize'
-    },
-    {
-      role: 'zoom'
-    },
-    {
-      type: 'separator'
-    },
-    {
-      role: 'togglefullscreen'
-    }
+    { label: 'Close', accelerator: 'CmdOrCtrl+W', role: 'close' },
+    { label: 'Minimize', accelerator: 'CmdOrCtrl+M', role: 'minimize' },
+    { role: 'zoom' },
+    { type: 'separator' },
+    { role: 'togglefullscreen' }
   ]
 }
 
-// make sure there is only one instance running at any given time
-var shouldQuit = app.makeSingleInstance(function (commandLine, workingDirectory) {
-  if (win) {
-    if (win.isMinimized()) {
-      win.restore()
-      win.focus()
-    }
-  }
-})
-
-if (shouldQuit) {
-  app.quit()
-}
-
 app.on('ready', function () {
-  // boot
+  manageInstance()
   createWindow()
-
-  // set custom menu
-  Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
+  createMenu()
 })
 
 app.on('window-all-closed', () => {
@@ -174,6 +115,22 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+function manageInstance () {
+  // make sure there is only one instance running at any given time
+  shouldQuit = app.makeSingleInstance(function (commandLine, workingDirectory) {
+    if (win) {
+      if (win.isMinimized()) {
+        win.restore()
+        win.focus()
+      }
+    }
+  })
+
+  if (shouldQuit) {
+    app.quit()
+  }
+}
 
 function createWindow () {
   // store the window state between sessions
@@ -210,4 +167,8 @@ function createWindow () {
   win.on('closed', () => {
     win = null
   })
+}
+
+function createMenu () {
+  Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
 }
