@@ -45,7 +45,7 @@ Editor shortcut | Action
 
 # Releases
 
-You can find 64-bit ready-to-use .dmg (MacOS), .deb (Linux) and .exe (Windows) files here: [https://github.com/jjcosgrove/frank/releases](https://github.com/jjcosgrove/frank/releases)
+You can find 64-bit ready-to-use .dmg (macOS), .deb (Linux) and .exe (Windows) files here: [https://github.com/jjcosgrove/frank/releases](https://github.com/jjcosgrove/frank/releases)
 
 # Building from source
 
@@ -103,7 +103,7 @@ npm install -g electron-builder
 
 To simply build a package, use the corresponding entry for the desired platform:
 
-## MacOS
+## macOS
 
 ```
 npm run dist-mac
