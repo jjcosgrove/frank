@@ -20,6 +20,7 @@ var NotesView = function (options) {
       this.listenTo(this.collection, 'reset', this.render)
       this.listenTo(App.Vent, 'add-note', this.renderEditorViewWithNewNote)
       this.listenTo(App.Vent, 'delete-note', this.deleteNote)
+      this.listenTo(App.Vent, 'save-note', this.saveNote)
       this.listenTo(App.Vent, 'export-notes', this.exportNotes)
     },
     render: function () {
@@ -67,14 +68,30 @@ var NotesView = function (options) {
     },
     deleteNote: function () {
       App.Utilities.ConsoleLogger('APP: Delete Note')
-      if (!_.isUndefined(this.parentMainView.editorView.model)) {
-        this.parentMainView.editorView.model.destroy()
+      var editorView = this.parentMainView.editorView
+      if (!_.isUndefined(editorView.model)) {
+        editorView.model.destroy()
+        editorView.editor.toTextArea()
+        editorView.editor = null
       }
-      this.parentMainView.editorView.$el.hide()
+      editorView.$el.hide()
+    },
+    saveNote: function () {
+      App.Utilities.ConsoleLogger('APP: Save Note')
+      var editorView = this.parentMainView.editorView
+      if (!_.isUndefined(editorView.model) && !_.isNull(editorView.editor)) {
+        App.Utilities.Saver(
+          editorView.editor.value(),
+          editorView.model.toJSON().title
+        )
+      }
     },
     exportNotes: function () {
       App.Utilities.ConsoleLogger('APP: Export Notes')
-      App.Utilities.Exporter(this.collection.toJSON(), 'notes.json')
+      App.Utilities.Exporter(
+        this.collection.toJSON(),
+        'notes.json'
+      )
     }
   })
   return new View(options)

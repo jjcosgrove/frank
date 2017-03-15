@@ -22,6 +22,7 @@ Global shortcut | Action
 *CmdOrCtrl+D* | Delete note
 *CmdOrCtrl+F* | Search notes (RegEx-based)
 *CmdOrCtrl+E* | Export notes (JSON)
+*CmdOrCtrl+S* | Save note (Markdown)
 *CmdOrCtrl+P* | Toggle preview (see editor shortcut)
 *CmdOrCtrl+Q* | Quit
 

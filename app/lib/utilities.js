@@ -17,7 +17,7 @@ var Utilities = function () {
       utilities.ConsoleLogger('App: First Run!')
       var note = new App.Models.Note({
         title: 'A frank guide to Frank...',
-        content: "# Shortcuts!\n\nEverything in Frank is driven by shortcuts. That really is all you need to know*\n\nGlobal shortcut | Action\n:------- | :-----\n*CmdOrCtrl+N*   |  Add note\n*CmdOrCtrl+D* | Delete note\n*CmdOrCtrl+F* | Search notes (RegEx-based)\n*CmdOrCtrl+E* | Export notes (JSON)\n*CmdOrCtrl+P* |Toggle preview (see editor shortcut)\n\n<br>\n\nEditor shortcut | Action\n:------- | :-----\n*CmdOrCtrl+'* | toggleBlockquote\n*CmdOrCtrl+B* | toggleBold\n*CmdOrCtrl+H* | toggleHeadingSmaller\n*CmdOrCtrl+I* | toggleItalic\n*CmdOrCtrl+K* | drawLink\n*CmdOrCtrl+L* | toggleUnorderedList\n*CmdOrCtrl+P* | togglePreview\n*CmdOrCtrl+Alt+C* | toggleCodeBlock\n*CmdOrCtrl+Alt+I* | drawImage\n*CmdOrCtrl+Alt+L* | toggleOrderedList\n*Shift+CmdOrCtrl+H* | toggleHeadingBigger\n\n<br>\n\n\\*I did say it was frank..."
+        content: "# Shortcuts!\n\nEverything in Frank is driven by shortcuts. That really is all you need to know*\n\nGlobal shortcut | Action\n:------- | :-----\n*CmdOrCtrl+N*   |  Add note\n*CmdOrCtrl+D* | Delete note\n*CmdOrCtrl+F* | Search notes (RegEx-based)\n*CmdOrCtrl+E* | Export notes (JSON)\n*CmdOrCtrl+S* | Save note (Markdown)\n*CmdOrCtrl+P* |Toggle preview (see editor shortcut)\n\n<br>\n\nEditor shortcut | Action\n:------- | :-----\n*CmdOrCtrl+'* | toggleBlockquote\n*CmdOrCtrl+B* | toggleBold\n*CmdOrCtrl+H* | toggleHeadingSmaller\n*CmdOrCtrl+I* | toggleItalic\n*CmdOrCtrl+K* | drawLink\n*CmdOrCtrl+L* | toggleUnorderedList\n*CmdOrCtrl+P* | togglePreview\n*CmdOrCtrl+Alt+C* | toggleCodeBlock\n*CmdOrCtrl+Alt+I* | drawImage\n*CmdOrCtrl+Alt+L* | toggleOrderedList\n*Shift+CmdOrCtrl+H* | toggleHeadingBigger\n\n<br>\n\n\\*I did say it was frank..."
       })
       note.save()
       fs.writeFileSync(hasInitializedIndicator)
@@ -37,6 +37,15 @@ var Utilities = function () {
     } else {
       setTimeout(console.log.bind(console, datetime + ': %s\n================================================\n', data))
     }
+  }
+
+  this.Saver = function (note, title) {
+    utilities.ConsoleLogger('IPC: Saving')
+
+    var exportLink = document.createElement('a')
+    exportLink.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(note))
+    exportLink.setAttribute('download', title + '.md')
+    exportLink.click()
   }
 
   this.Exporter = function (data, filename) {

@@ -27,6 +27,14 @@ let menu = [
           win.webContents.send('shortcut', {command: 'delete-note'})
         }
       },
+      { type: 'separator' },
+      {
+        label: 'Save Note',
+        accelerator: 'CmdOrCtrl+S',
+        click: () => {
+          win.webContents.send('shortcut', {command: 'save-note'})
+        }
+      },
       {
         label: 'Export Notes',
         accelerator: 'CmdOrCtrl+E',
